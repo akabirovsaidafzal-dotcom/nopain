@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="contact-ultra">
+
+  <div class="contact-word">CONTACT</div>
+
+  <div class="contact-hero">
+    <p class="tag">Start a Project</p>
+    <h1>Let’s create something people can’t ignore.</h1>
+    <p>
+      Send us your idea, brand, product or service. We’ll shape the concept,
+      visual direction and production plan.
+    </p>
+  </div>
+
+  <div class="contact-layout">
+
+    <a href="https://t.me/yourusername" target="_blank" class="creative-start-card magnetic-core">
+      <div class="capsule-glow"></div>
+      <div class="capsule-line"></div>
+
+      <span>NOPAIN</span>
+      <h3>START</h3>
+
+      <div class="capsule-arrow"></div>
+    </a>
+
+    <div class="contact-cards-premium">
+
+      <a href="https://t.me/yourusername" target="_blank" class="contact-card-premium">
+        <span>01</span>
+        <h3>Telegram</h3>
+        <p>@yourusername</p>
+      </a>
+
+      <a href="https://instagram.com/nopain" target="_blank" class="contact-card-premium">
+        <span>02</span>
+        <h3>Instagram</h3>
+        <p>@nopain</p>
+      </a>
+
+      <div class="contact-card-premium">
+        <span>03</span>
+        <h3>Phone</h3>
+        <p>+998 XX XXX XX XX</p>
+      </div>
+
+      <div class="contact-card-premium">
+        <span>04</span>
+        <h3>Location</h3>
+        <p>Tashkent, Uzbekistan</p>
+      </div>
+
+    </div>
+
+  </div>
+
+  <a href="https://t.me/yourusername" target="_blank" class="contact-main-btn">
+    Start Project →
+  </a>
+
+</section>
+
+<script>
+  const core = document.querySelector(".magnetic-core");
+
+  if (core) {
+    core.addEventListener("mousemove", (e) => {
+      const rect = core.getBoundingClientRect();
+      const x = e.clientX - rect.left - rect.width / 2;
+      const y = e.clientY - rect.top - rect.height / 2;
+
+      core.style.transform = `translate(${x * 0.035}px, ${y * 0.035}px)`;
+    });
+
+    core.addEventListener("mouseleave", () => {
+      core.style.transform = "translate(0, 0)";
+    });
+  }
+</script>
+{% endblock %}

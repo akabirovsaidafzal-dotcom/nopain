@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<section class="projects-hero">
+  <p class="tag">Our Projects</p>
+  <h1>Work designed to create attention.</h1>
+  <p>
+    A curated selection of AI content, expert videos, short reels and product visuals.
+  </p>
+</section>
+
+<section class="projects-showcase">
+
+  <button class="project-feature short-reels-feature" onclick="openReelsModal()">
+    <div class="project-number">01</div>
+    <div>
+      <p class="mini-label">Featured Case</p>
+      <h2>Short Reels</h2>
+      <p>High-retention vertical content built for attention, rhythm and clarity.</p>
+    </div>
+    <span class="project-arrow">→</span>
+  </button>
+
+  <div class="project-tile ai">
+    <span>02</span>
+    <h3>AI Campaign</h3>
+    <p>Generated visuals for modern launches and creative ads.</p>
+  </div>
+
+  <div class="project-tile expert">
+    <span>03</span>
+    <h3>Expert Video</h3>
+    <p>Authority content for founders, experts and personal brands.</p>
+  </div>
+
+  <div class="project-tile product">
+    <span>04</span>
+    <h3>Product Film</h3>
+    <p>Premium product and service presentation videos.</p>
+  </div>
+
+</section>
+
+<div class="reels-modal" id="reelsModal">
+  <div class="reels-backdrop" onclick="closeReelsModal()"></div>
+
+  <div class="reels-content-premium">
+    <button class="close-modal" onclick="closeReelsModal()">×</button>
+
+    <div class="branded-video-frame">
+
+      <div class="brand-side left">
+        <span>N</span><span>O</span><span>P</span><span>A</span><span>I</span><span>N</span>
+      </div>
+
+      <video controls>
+        <source src="{{ url_for('static', filename='videos/short-reels.mp4') }}" type="video/mp4">
+      </video>
+
+      <div class="brand-side right">
+        <span>N</span><span>O</span><span>P</span><span>A</span><span>I</span><span>N</span>
+      </div>
+
+    </div>
+
+    <div class="video-info-premium">
+      <p class="tag">Short Reels Project</p>
+      <h2>Built for attention, rhythm and retention.</h2>
+      <p>
+        This reel is designed to hook the viewer fast, keep the pacing tight,
+        and deliver the message clearly without unnecessary visual noise.
+      </p>
+
+      <div class="video-points-premium">
+        <div>
+          <span>01</span>
+          <h4>Strong Hook</h4>
+          <p>Designed to stop scrolling in the first seconds.</p>
+        </div>
+
+        <div>
+          <span>02</span>
+          <h4>Clean Rhythm</h4>
+          <p>Sharp pacing keeps the viewer engaged.</p>
+        </div>
+
+        <div>
+          <span>03</span>
+          <h4>Clear Message</h4>
+          <p>The viewer understands the value immediately.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+function openReelsModal() {
+  document.getElementById("reelsModal").classList.add("active");
+}
+
+function closeReelsModal() {
+  document.getElementById("reelsModal").classList.remove("active");
+}
+</script>
+
+{% endblock %}
