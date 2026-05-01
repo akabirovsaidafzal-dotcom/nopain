@@ -1,45 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
 
-    <!-- 🔥 GOOGLE VERIFICATION (ВСТАВЬ СВОЙ КОД) -->
-    <meta name="google-site-verification" content="6J9MWNKCFGsOMJ7iO7lZk4uZS_3f2FaIFhzyllZtdUw" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>NOPAIN</title>
+  <!-- Google verification -->
+  <meta name="google-site-verification" content="googlec6306b0ba7c3de16" />
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <title>NOPAIN — Creative Video Production</title>
+  <meta name="description" content="NOPAIN is a creative production studio for AI content, short reels, expert videos and premium visual storytelling.">
 
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 
 <body>
 
-    <!-- 🔥 NAVBAR -->
-    <header class="navbar">
-        <div class="logo">NOPAIN.</div>
+<div class="smooth-transition"></div>
 
-        <nav>
-            <a href="/">Home</a>
-            <a href="/about">About</a>
-            <a href="/team">Team</a>
-            <a href="/projects">Projects</a>
-            <a href="/contact">Contact</a>
-        </nav>
-    </header>
+<header class="premium-nav">
+  <a href="/" class="nav-logo">
+    <img src="{{ url_for('static', filename='logo.png') }}" alt="NOPAIN">
+  </a>
 
-    <!-- 🔥 MAIN CONTENT -->
-    <main>
-        {% block content %}{% endblock %}
-    </main>
+  <nav class="nav-links">
+    <a href="/">Home</a>
+    <a href="/about">About</a>
+    <a href="/team">Team</a>
+    <a href="/projects">Projects</a>
+    <a href="/contact">Contact</a>
+  </nav>
+</header>
 
-    <!-- 🔥 FOOTER -->
-    <footer class="footer">
-        <p>© 2026 NOPAIN. All rights reserved.</p>
-    </footer>
+<main class="page-content">
+  {% block content %}{% endblock %}
+</main>
+
+<script>
+  const body = document.body;
+
+  function showPage() {
+    body.classList.remove("page-leaving");
+    body.classList.add("page-loaded");
+  }
+
+  window.addEventListener("load", showPage);
+  window.addEventListener("pageshow", showPage);
+
+  document.addEventListener("click", function(e) {
+    const link = e.target.closest("a");
+    if (!link) return;
+
+    const href = link.getAttribute("href");
+
+    if (
+      !href ||
+      href.startsWith("#") ||
+      href.startsWith("http") ||
+      href.startsWith("mailto:") ||
+      href.startsWith("tel:") ||
+      link.target === "_blank"
+    ) return;
+
+    e.preventDefault();
+
+    body.classList.remove("page-loaded");
+    body.classList.add("page-leaving");
+
+    setTimeout(() => {
+      window.location.href = href;
+    }, 160);
+  });
+</script>
 
 </body>
 </html>
