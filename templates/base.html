@@ -1,70 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>NOPAIN Production</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- 🔥 GOOGLE VERIFICATION (ВСТАВЬ СВОЙ КОД) -->
+    <meta name="google-site-verification" content="6J9MWNKCFGsOMJ7iO7lZk4uZS_3f2FaIFhzyllZtdUw" />
+
+    <title>NOPAIN</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-<div class="smooth-transition"></div>
+    <!-- 🔥 NAVBAR -->
+    <header class="navbar">
+        <div class="logo">NOPAIN.</div>
 
-<nav>
-  <a href="/" class="logo-box">
-    <img src="{{ url_for('static', filename='logo.png') }}" alt="NOPAIN">
-  </a>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/about">About</a>
+            <a href="/team">Team</a>
+            <a href="/projects">Projects</a>
+            <a href="/contact">Contact</a>
+        </nav>
+    </header>
 
-  <div class="links">
-    <a href="/">Home</a>
-    <a href="/about">About</a>
-    <a href="/team">Team</a>
-    <a href="/projects">Projects</a>
-    <a href="/contact">Contact</a>
-  </div>
-</nav>
+    <!-- 🔥 MAIN CONTENT -->
+    <main>
+        {% block content %}{% endblock %}
+    </main>
 
-<main class="page-content">
-  {% block content %}{% endblock %}
-</main>
-
-<script>
-  const body = document.body;
-
-  function showPage() {
-    body.classList.remove("page-leaving");
-    body.classList.add("page-loaded");
-  }
-
-  window.addEventListener("load", showPage);
-  window.addEventListener("pageshow", showPage);
-
-  document.addEventListener("click", function(e) {
-    const link = e.target.closest("a");
-    if (!link) return;
-
-    const href = link.getAttribute("href");
-
-    if (
-      !href ||
-      href.startsWith("#") ||
-      href.startsWith("http") ||
-      href.startsWith("mailto:") ||
-      href.startsWith("tel:") ||
-      link.target === "_blank"
-    ) return;
-
-    e.preventDefault();
-
-    body.classList.remove("page-loaded");
-    body.classList.add("page-leaving");
-
-    setTimeout(() => {
-      window.location.href = href;
-    }, 180);
-  });
-</script>
+    <!-- 🔥 FOOTER -->
+    <footer class="footer">
+        <p>© 2026 NOPAIN. All rights reserved.</p>
+    </footer>
 
 </body>
 </html>
