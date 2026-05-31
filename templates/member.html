@@ -1,29 +1,31 @@
 {% extends "base.html" %}
 
 {% block content %}
+
 <section class="member-page-premium">
-  <div class="member-bg-word">PROFILE</div>
+  <div class="member-bg-word">PROFIL</div>
   <div class="member-glow"></div>
 
   <div class="member-visual-card">
     <div class="member-photo-premium">
-      <img src="{{ url_for('static', filename=person.photo) }}">
+      <img src="{{ url_for('static', filename=person.photo) }}" alt="{{ person.name }}">
     </div>
 
     <div class="member-mini-stats">
       <div>
-        <span>ROLE</span>
-        <p>{{ person.name }}</p>
+        <span>ROL</span>
+        <p>{{ person.role }}</p>
       </div>
+
       <div>
-        <span>FOCUS</span>
-        <p>Premium Visuals</p>
+        <span>FOKUS</span>
+        <p>Premium vizual</p>
       </div>
     </div>
   </div>
 
   <div class="member-info-premium">
-    <p class="tag">Team Profile</p>
+    <p class="tag">Jamoa profili</p>
     <h1>{{ person.name }}</h1>
     <h2>{{ person.role }}</h2>
     <p>{{ person.bio }}</p>
@@ -38,9 +40,10 @@
     </div>
 
     <div class="member-actions">
-      <a href="/team" class="secondary-btn">Back to Team</a>
-      <a href="/contact" class="cta">Start a Project</a>
+      <a href="/team" class="secondary-btn">Jamoaga qaytish</a>
+      <a href="/contact" class="cta">Loyihani boshlash</a>
     </div>
   </div>
 </section>
+
 {% endblock %}

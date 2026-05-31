@@ -1,30 +1,35 @@
 {% extends "base.html" %}
 
 {% block content %}
+
 <section class="team-page">
   <div class="team-header">
-    <p class="tag">Our Team</p>
-    <h1>The faces behind NOPAIN.</h1>
-    <p>Hover to reveal the role. Click to open the full profile.</p>
+    <p class="tag">Bizning jamoa</p>
+
+    <h1>NOPAIN ortidagi jamoa.</h1>
+
+    <p>
+      Har bir loyiha aniq g‘oya, toza production va premium yakuniy ko‘rinish
+      ustida ishlaydigan kichik, lekin fokusli jamoa tomonidan tayyorlanadi.
+    </p>
   </div>
 
-  <div class="team-stage">
-
+  <div class="team-stage team-stage-three">
     <a href="/team/brand-face" class="team-card-premium creative">
       <div class="team-card-inner">
         <div class="team-image-box">
-          <img src="{{ url_for('static', filename='team/director.jpg') }}">
+          <img src="{{ url_for('static', filename='team/director.jpg') }}" alt="Brand Face">
 
           <div class="team-image-overlay">
             <span>BRAND PRESENCE</span>
-            <p>Builds identity, trust and the public face of NOPAIN.</p>
+            <p>Brend obrazi, ishonchi va tomoshabin bilan birinchi taassurotini shakllantiradi.</p>
           </div>
         </div>
 
         <div class="team-content">
           <span class="number">01</span>
           <h3>Co-Founder / Brand Face</h3>
-          <p>Vision, identity and the face people remember.</p>
+          <p>Ko‘rinish, identitet va odamlar eslab qoladigan obraz.</p>
         </div>
       </div>
     </a>
@@ -32,18 +37,18 @@
     <a href="/team/videographer" class="team-card-premium video">
       <div class="team-card-inner">
         <div class="team-image-box">
-          <img src="{{ url_for('static', filename='team/videographer.jpg') }}">
+          <img src="{{ url_for('static', filename='team/videographer.jpg') }}" alt="Videographer">
 
           <div class="team-image-overlay">
             <span>PRODUCTION EYE</span>
-            <p>Controls camera, light, movement and cinematic execution.</p>
+            <p>Kamera, yorug‘lik, harakat va cinematic ijroni nazorat qiladi.</p>
           </div>
         </div>
 
         <div class="team-content">
           <span class="number">02</span>
           <h3>CEO / Videographer</h3>
-          <p>Direction, shooting and cinematic execution.</p>
+          <p>Rejissura, suratga olish va cinematic execution.</p>
         </div>
       </div>
     </a>
@@ -51,22 +56,22 @@
     <a href="/team/editor" class="team-card-premium editor">
       <div class="team-card-inner">
         <div class="team-image-box">
-          <img src="{{ url_for('static', filename='team/editor.jpg') }}">
+          <img src="{{ url_for('static', filename='team/editor.jpg') }}" alt="Editor">
 
           <div class="team-image-overlay">
             <span>FINAL IMPACT</span>
-            <p>Turns raw footage into rhythm, emotion and attention.</p>
+            <p>Xom materialni ritm, hissiyot va e’tiborga aylantiradi.</p>
           </div>
         </div>
 
         <div class="team-content">
           <span class="number">03</span>
           <h3>CEO / Editor</h3>
-          <p>Rhythm, storytelling and final visual impact.</p>
+          <p>Ritm, storytelling va yakuniy vizual ta’sir.</p>
         </div>
       </div>
     </a>
-
   </div>
 </section>
+
 {% endblock %}

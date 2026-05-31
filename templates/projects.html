@@ -2,107 +2,144 @@
 
 {% block content %}
 
-<section class="projects-hero">
-  <p class="tag">Our Projects</p>
-  <h1>Work designed to create attention.</h1>
-  <p>
-    A curated selection of AI content, expert videos, short reels and product visuals.
-  </p>
-</section>
+<main class="projects-page-clean">
 
-<section class="projects-showcase">
+  <section class="projects-hero-clean">
+    <div class="projects-hero-panel-clean">
+      <p class="tag projects-tag-clean">Loyihalarimiz</p>
 
-  <button class="project-feature short-reels-feature" onclick="openReelsModal()">
-    <div class="project-number">01</div>
-    <div>
-      <p class="mini-label">Featured Case</p>
-      <h2>Short Reels</h2>
-      <p>High-retention vertical content built for attention, rhythm and clarity.</p>
+      <h1>E’tibor yaratish uchun ishlangan ishlar.</h1>
+
+      <p class="projects-hero-text-clean">
+        AI kontent, ekspert videolar, reels va premium vizual loyihalar.
+      </p>
     </div>
-    <span class="project-arrow">→</span>
-  </button>
+  </section>
 
-  <div class="project-tile ai">
-    <span>02</span>
-    <h3>AI Campaign</h3>
-    <p>Generated visuals for modern launches and creative ads.</p>
-  </div>
+  <section class="projects-showcase-clean">
 
-  <div class="project-tile expert">
-    <span>03</span>
-    <h3>Expert Video</h3>
-    <p>Authority content for founders, experts and personal brands.</p>
-  </div>
-
-  <div class="project-tile product">
-    <span>04</span>
-    <h3>Product Film</h3>
-    <p>Premium product and service presentation videos.</p>
-  </div>
-
-</section>
-
-<div class="reels-modal" id="reelsModal">
-  <div class="reels-backdrop" onclick="closeReelsModal()"></div>
-
-  <div class="reels-content-premium">
-    <button class="close-modal" onclick="closeReelsModal()">×</button>
-
-    <div class="branded-video-frame">
-
-      <div class="brand-side left">
-        <span>N</span><span>O</span><span>P</span><span>A</span><span>I</span><span>N</span>
+    <button class="project-feature-clean" type="button" onclick="openReelsModal()">
+      <div class="project-feature-content">
+        <p class="mini-label">Asosiy loyiha</p>
+        <h2>Short Reels</h2>
+        <p>
+          E’tibor, ritm va retention uchun qurilgan premium vertikal kontent.
+        </p>
       </div>
 
-      <video controls>
+      <div class="project-arrow-clean">
+        →
+      </div>
+    </button>
+
+    <div class="project-card-clean">
+      <span>02</span>
+      <h3>AI Kampaniya</h3>
+      <p>Modern launch va kreativ reklamalar uchun AI vizuallar.</p>
+    </div>
+
+    <div class="project-card-clean">
+      <span>03</span>
+      <h3>Ekspert Video</h3>
+      <p>Ekspert va personal brendlar uchun authority kontent.</p>
+    </div>
+
+    <div class="project-card-clean">
+      <span>04</span>
+      <h3>Visual Storytelling</h3>
+      <p>Brend uchun aniq xabar, hook va vizual yo‘nalish.</p>
+    </div>
+
+    <div class="project-card-clean">
+      <span>05</span>
+      <h3>Mahsulot & Xizmat Videolari</h3>
+      <p>Mahsulot va xizmatlarni premium ko‘rsatib beruvchi videolar.</p>
+    </div>
+
+  </section>
+
+</main>
+
+<div class="reels-modal-clean" id="reelsModal">
+  <div class="reels-backdrop-clean" onclick="closeReelsModal()"></div>
+
+  <div class="reels-content-premium-clean">
+
+    <button class="close-modal-clean" type="button" onclick="closeReelsModal()">×</button>
+
+    <div class="clean-video-box">
+      <video id="reelsVideo" controls preload="metadata">
         <source src="{{ url_for('static', filename='videos/short-reels.mp4') }}" type="video/mp4">
+        Sizning brauzeringiz video formatini qo‘llab-quvvatlamaydi.
       </video>
-
-      <div class="brand-side right">
-        <span>N</span><span>O</span><span>P</span><span>A</span><span>I</span><span>N</span>
-      </div>
-
     </div>
 
-    <div class="video-info-premium">
-      <p class="tag">Short Reels Project</p>
-      <h2>Built for attention, rhythm and retention.</h2>
+    <div class="clean-video-info">
+      <p class="tag">Short Reels loyihasi</p>
+
+      <h2>E’tibor, ritm va retention uchun qurilgan video.</h2>
+
       <p>
-        This reel is designed to hook the viewer fast, keep the pacing tight,
-        and deliver the message clearly without unnecessary visual noise.
+        Bu reel tomoshabinni birinchi soniyalarda ushlash, tempni saqlash
+        va xabarni ortiqcha vizual shovqinsiz yetkazish uchun ishlangan.
       </p>
 
-      <div class="video-points-premium">
+      <div class="video-points-clean">
         <div>
           <span>01</span>
-          <h4>Strong Hook</h4>
-          <p>Designed to stop scrolling in the first seconds.</p>
+          <h4>Kuchli hook</h4>
+          <p>Birinchi soniyalarda scrollni to‘xtatadi.</p>
         </div>
 
         <div>
           <span>02</span>
-          <h4>Clean Rhythm</h4>
-          <p>Sharp pacing keeps the viewer engaged.</p>
+          <h4>Toza ritm</h4>
+          <p>Dinamik pacing videoni jonli ushlab turadi.</p>
         </div>
 
         <div>
           <span>03</span>
-          <h4>Clear Message</h4>
-          <p>The viewer understands the value immediately.</p>
+          <h4>Aniq xabar</h4>
+          <p>Tomoshabin qiymatni darhol tushunadi.</p>
         </div>
       </div>
     </div>
+
   </div>
 </div>
 
 <script>
 function openReelsModal() {
-  document.getElementById("reelsModal").classList.add("active");
+  const modal = document.getElementById("reelsModal");
+  const video = document.getElementById("reelsVideo");
+
+  if (!modal || !video) return;
+
+  modal.classList.add("active");
+  document.body.classList.add("modal-open");
+
+  video.pause();
+  video.currentTime = 0;
 }
 
 function closeReelsModal() {
-  document.getElementById("reelsModal").classList.remove("active");
+  const modal = document.getElementById("reelsModal");
+  const video = document.getElementById("reelsVideo");
+
+  if (!modal || !video) return;
+
+  video.pause();
+  video.currentTime = 0;
+
+  modal.classList.remove("active");
+  document.body.classList.remove("modal-open");
 }
+
+document.addEventListener("keydown", function(event) {
+  if (event.key === "Escape") {
+    closeReelsModal();
+  }
+});
 </script>
 
 {% endblock %}

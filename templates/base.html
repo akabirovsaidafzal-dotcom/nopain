@@ -1,32 +1,65 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uz">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta name="google-site-verification" content="googlec6306b0ba7c3de16" />
+  <meta name="google-site-verification" content="googlec6306b0ba7c3de16">
 
-  <title>NOPAIN — Creative Video Production</title>
-  <meta name="description" content="NOPAIN is a creative production studio for AI content, short reels, expert videos and premium visual storytelling.">
+  <title>NOPAIN — Visual Production Company</title>
+  <meta name="description" content="NOPAIN — Toshkentdagi visual production kompaniyasi. Biz bizneslar, ekspertlar va shaxsiy brendlar uchun premium vizual kontent yaratamiz.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 
 <body>
 
-<div class="smooth-transition"></div>
+<div class="loader" id="loader">
+  <div class="loader-grid"></div>
+
+  <div class="loader-mark">
+    <div class="loader-symbol">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <div class="loader-text">
+      <strong>NO</strong>
+      <em>PAIN</em>
+    </div>
+
+    <p>visual production</p>
+  </div>
+
+  <div class="loader-progress">
+    <span></span>
+  </div>
+</div>
+
+<div class="page-transition"></div>
 
 <nav class="main-nav">
-  <a href="/" class="logo-box">
+  <a href="/" class="logo-box" aria-label="NOPAIN bosh sahifa">
     <img src="{{ url_for('static', filename='logo.png') }}" alt="NOPAIN">
   </a>
 
+  <button class="nav-toggle" type="button" aria-label="Menyuni ochish">
+    <span></span>
+    <span></span>
+  </button>
+
   <div class="links">
-    <a href="/">Home</a>
-    <a href="/about">About</a>
-    <a href="/team">Team</a>
-    <a href="/projects">Projects</a>
-    <a href="/contact">Contact</a>
+    <a href="/">Bosh sahifa</a>
+    <a href="/about">Biz haqimizda</a>
+    <a href="/team">Jamoa</a>
+    <a href="/projects">Loyihalar</a>
+    <a href="/#pricing">Paketlar</a>
+    <a href="/contact">Aloqa</a>
   </div>
 </nav>
 
@@ -36,14 +69,33 @@
 
 <script>
   const body = document.body;
+  const loader = document.getElementById("loader");
+  const navToggle = document.querySelector(".nav-toggle");
+  const navLinks = document.querySelector(".links");
+
+  let loaderTimer = setTimeout(() => {
+    if (loader) loader.classList.add("loader-active");
+  }, 350);
 
   function showPage() {
+    clearTimeout(loaderTimer);
+
     body.classList.remove("page-leaving");
     body.classList.add("page-loaded");
+
+    setTimeout(() => {
+      if (loader) loader.classList.add("loader-hidden");
+    }, loader && loader.classList.contains("loader-active") ? 760 : 0);
   }
 
   window.addEventListener("load", showPage);
   window.addEventListener("pageshow", showPage);
+
+  if (navToggle && navLinks) {
+    navToggle.addEventListener("click", () => {
+      body.classList.toggle("nav-open");
+    });
+  }
 
   document.addEventListener("click", function(e) {
     const link = e.target.closest("a");
@@ -62,6 +114,7 @@
 
     e.preventDefault();
 
+    body.classList.remove("nav-open");
     body.classList.remove("page-loaded");
     body.classList.add("page-leaving");
 
